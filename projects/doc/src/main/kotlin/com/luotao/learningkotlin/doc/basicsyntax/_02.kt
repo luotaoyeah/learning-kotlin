@@ -1,6 +1,6 @@
 // https://kotlinlang.org/docs/basic-syntax.html#functions
 
-package com.luotao.learningkotlin.doc.basicsyntax
+package com.luotao.learningkotlin.doc.basicsyntax._02
 
 
 fun main() {
