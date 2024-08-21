@@ -1,10 +1,9 @@
-// https://kotlinlang.org/docs/typecasts.html#is-and-is-operators
-
 package com.luotao.learningkotlin.doc.concepts.types.typechecksandcasts
 
 import org.junit.jupiter.api.Assertions
 import kotlin.test.Test
 
+// https://kotlinlang.org/docs/typecasts.html#is-and-is-operators
 class _01 {
 
     // 使用 is 和 !is 判断对象是否是某个类型,
