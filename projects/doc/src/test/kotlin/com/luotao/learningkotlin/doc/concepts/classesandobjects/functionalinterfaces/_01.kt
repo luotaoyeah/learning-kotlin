@@ -1,6 +1,5 @@
 package com.luotao.learningkotlin.doc.concepts.classesandobjects.functionalinterfaces
 
-import com.luotao.learningkotlin.doc.concepts.classesandobjects.functionalinterfaces._01.I01
 import kotlin.test.Test
 
 // https://kotlinlang.org/docs/fun-interfaces.html
