@@ -18,7 +18,7 @@ class _01 {
             else -> println(-1)
         }
 
-        // when 后面可以没有条件, 此时每一个分支的条件都是一个 boolean 类型的值,
+        // when 后面可以没有条件, 此时每一个分支的条件都是一个 boolean 类型的表达式,
         when {
             i == 0 -> println(0)
             i == 1 -> println(1)
