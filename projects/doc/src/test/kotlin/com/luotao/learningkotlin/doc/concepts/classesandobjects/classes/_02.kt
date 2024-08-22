@@ -8,7 +8,7 @@ class _02 {
 
     @Test
     fun _01() {
-        // class 必须有一个 primary constructor, 可以有一个或者多个 secondary constructor,
+        // class 可以有一个 primary constructor, 可以有一个或者多个 secondary constructor,
 
         // primary constructor 是定义在 class header 中的,
         class C01 constructor(x: Int) {}
