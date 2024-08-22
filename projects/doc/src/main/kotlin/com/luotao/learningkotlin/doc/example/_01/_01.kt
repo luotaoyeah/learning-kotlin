@@ -4,7 +4,6 @@
 
 class C0001
 
-
 val aaa = 1
 
 var bbb = 2

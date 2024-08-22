@@ -2,7 +2,6 @@ package com.luotao.learningkotlin.doc.concepts.controlflow.conditionsandflows
 
 import kotlin.test.Test
 
-
 // https://kotlinlang.org/docs/control-flow.html#when-expression
 class _01 {
 

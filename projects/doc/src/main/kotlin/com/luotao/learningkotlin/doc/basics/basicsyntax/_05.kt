@@ -2,7 +2,6 @@
 
 package com.luotao.learningkotlin.doc.basicsyntax._05
 
-
 fun main() {
     val x = 9
     val y = 9

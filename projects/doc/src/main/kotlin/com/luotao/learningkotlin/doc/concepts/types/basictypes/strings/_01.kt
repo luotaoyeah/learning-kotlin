@@ -9,7 +9,8 @@ fun main() {
     }
 
     // 三个双引号包裹的多行字符串,
-    val str01 = """
+    val str01 =
+        """
         A
         B
         C

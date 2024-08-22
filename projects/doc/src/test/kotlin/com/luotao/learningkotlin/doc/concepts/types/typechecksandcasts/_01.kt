@@ -1,7 +1,7 @@
 package com.luotao.learningkotlin.doc.concepts.types.typechecksandcasts
 
-import org.junit.jupiter.api.Assertions
 import kotlin.test.Test
+import org.junit.jupiter.api.Assertions
 
 // https://kotlinlang.org/docs/typecasts.html#is-and-is-operators
 class _01 {

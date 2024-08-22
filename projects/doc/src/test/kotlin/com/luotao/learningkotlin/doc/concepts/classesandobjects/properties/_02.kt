@@ -14,8 +14,6 @@ class _02 {
                 set(value) {
                     field = value
                 }
-
         }
-
     }
 }
