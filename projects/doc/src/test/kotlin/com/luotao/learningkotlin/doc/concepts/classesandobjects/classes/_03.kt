@@ -43,4 +43,10 @@ class _03 {
         }
 
     }
+
+    @Test
+    fun _02() {
+        // 如果一个类没有显式声明 primary constructor 或者 secondary constructor, 则会默认生成一个无参的 primary constructor,
+        class C01
+    }
 }
