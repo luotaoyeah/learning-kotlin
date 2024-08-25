@@ -33,4 +33,25 @@ class _01 {
 
         Assertions.assertTrue(obj01 is C01)
     }
+
+    // https://kotlinlang.org/docs/object-declarations.html#using-anonymous-objects-as-return-and-value-types
+    @Test
+    fun _03() {
+
+        // object expression 作为 local variable
+        val obj01 =
+            object {
+                val x = "X"
+            }
+        Assertions.assertEquals("X", obj01.x)
+
+        class C01 {
+            // object expression 作为方法的返回值,
+            fun fn01() =
+                object {
+                    val x = "X"
+                }
+        }
+        Assertions.assertEquals("X", C01().fn01().x)
+    }
 }
