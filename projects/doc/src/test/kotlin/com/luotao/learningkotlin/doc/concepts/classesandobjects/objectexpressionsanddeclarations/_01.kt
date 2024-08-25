@@ -1,5 +1,6 @@
 package com.luotao.learningkotlin.doc.concepts.classesandobjects.objectexpressionsanddeclarations
 
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 // https://kotlinlang.org/docs/object-declarations.html
@@ -20,5 +21,16 @@ class _01 {
         println(obj01.name)
         println(obj01.age)
         println(obj01)
+    }
+
+    // https://kotlinlang.org/docs/object-declarations.html#inheriting-anonymous-objects-from-supertypes
+    @Test
+    fun _02() {
+        open class C01 {}
+
+        // 显式指定 anonymous object 的父类,
+        val obj01 = object : C01() {}
+
+        Assertions.assertTrue(obj01 is C01)
     }
 }
