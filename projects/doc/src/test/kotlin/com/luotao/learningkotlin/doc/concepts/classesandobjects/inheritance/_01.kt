@@ -17,7 +17,7 @@ class _01 {
         }
 
         class C02 : C01 {
-            // 子类的 constructor 中必须调用父类的 constructor, 如果没有显式调用, 表示默认调用的是父类的无参的 constructor,
+            // 子类的 constructor 中必须调用父类的 constructor, 如果没有显式调用, 表示默认调用父类的无参的 constructor,
             constructor() {}
 
             // 通过 super() 显式地调用父类的 constructor,
