@@ -1,32 +1,29 @@
 package com.luotao.learningkotlin.doc.concepts.classesandobjects.properties
 
 import kotlin.test.Test
-import org.junit.jupiter.api.Assertions
+import kotlin.test.assertEquals
 
-// https://kotlinlang.org/docs/properties.html#getters-and-setters
+// https://kotlinlang.org/docs/properties.html#declaring-properties
 class _01 {
 
     @Test
     fun _01() {
-        class C01 {
-            // 有默认的 getter, setter,
-            var x: String = "x"
 
-            // 自定义的 getter, setter,
-            var y
-                get() = x.uppercase()
-                set(value) {
-                    x = value.lowercase()
-                }
+        class C01 {
+            // 使用 var 声明一个 property, 可读可写,
+            var x: Int = 0
+
+            // 使用 val 声明一个 property, 只读,
+            val y: Int = 0
         }
 
         var c01 = C01()
 
-        Assertions.assertEquals("x", c01.x)
-        Assertions.assertEquals("X", c01.y)
+        assertEquals(0, c01.x)
 
-        c01.y = "Y"
-        Assertions.assertEquals("y", c01.x)
-        Assertions.assertEquals("Y", c01.y)
+        c01.x = 8
+        assertEquals(8, c01.x)
+
+        assertEquals(0, c01.y)
     }
 }

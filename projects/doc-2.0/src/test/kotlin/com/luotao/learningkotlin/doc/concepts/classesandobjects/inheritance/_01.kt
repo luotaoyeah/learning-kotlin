@@ -16,15 +16,16 @@ class _01 {
             constructor(x: Int, y: Int, z: Int) : this(x, y) {}
         }
 
+        // 如下, C02 没有 primary constructor,
         class C02 : C01 {
-            // 子类的 constructor 中必须调用父类的 constructor, 如果没有显式调用, 表示默认调用父类的无参的 constructor,
+            // 子类的 constructor 中必须调用父类的 constructor, 如果没有显式调用, 表示隐式调用父类的无参的 constructor,
             constructor() {}
 
             // 通过 super() 显式地调用父类的 constructor,
             constructor(x: Int) : super(x) {}
         }
 
-        // 如下, C03 只有一个 primary constructor, 因此必须在 primary constructor 后面调用父类的 constructor,
+        // 如下, C03 只有一个隐式的 primary constructor, 因此必须在 primary constructor 后面调用父类的 constructor,
         class C03 : C01() {}
     }
 }
