@@ -1,7 +1,7 @@
 package com.luotao.learningkotlin.doc.concepts.classesandobjects.classes
 
-import kotlin.test.Test
 import org.junit.jupiter.api.Assertions
+import kotlin.test.Test
 
 // https://kotlinlang.org/docs/classes.html#constructors
 class _02 {
@@ -18,11 +18,12 @@ class _02 {
 
         // primary constructor 是定义在 class header 中的, 那么它如何包含其他语句 ? 答案是放到 initializer block 中,
         class C03(x: Int) {
+            // init {} 称之为 initializer block,
             init {
                 println("init A")
             }
 
-            val y: String = "Y".also { println(it) }
+            val y: String = "Y".also ({ println(it) } )
 
             init {
                 // 在 initializer block 中使用 primary constructor 的参数,

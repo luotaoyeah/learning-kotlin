@@ -8,7 +8,7 @@ class _03 {
     @Test
     fun _01() {
         class C01 {
-            // 在 class body 中定义 secondary constructor,
+            // 在 class body 中定义 secondary constructor, 使用关键字 constructor,
             constructor(x: Int) {}
         }
 
@@ -19,7 +19,7 @@ class _03 {
             constructor(x: Int, y: Int) : this(x) {}
 
             // 间接地 delegate,
-            constructor(x: Int, y: Int, z: Int) : this(x, y) {}
+            constructor(x: Int, y: Int, z: Int) : this(x, y)
         }
 
         class C03() {
@@ -46,5 +46,7 @@ class _03 {
         // 如果一个类没有显式声明 primary constructor 或者 secondary constructor, 则会默认生成一个无参的 primary
         // constructor,
         class C01
+
+        var c01 = C01()
     }
 }
