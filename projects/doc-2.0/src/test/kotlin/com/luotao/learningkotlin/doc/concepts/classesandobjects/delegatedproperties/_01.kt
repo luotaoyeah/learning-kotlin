@@ -40,4 +40,28 @@ class _01 {
         c01.a = "B"
         assertEquals("B", c01.a)
     }
+
+    // https://kotlinlang.org/docs/delegated-properties.html#delegating-to-another-property
+    @Test
+    fun _02() {
+        class C01 {
+            var a: String = ""
+                get() {
+                    println("${C01::class.simpleName} | ${C01::a.name} | get()")
+                    return field
+                }
+                set(value) {
+                    println("${C01::class.simpleName} | ${C01::a.name} | set()")
+                    field = value
+                }
+
+            // 将一个 property 委托给另一个 property,
+            var b: String by C01::a
+        }
+
+        var c01 = C01()
+
+        c01.b = "B"
+        assertEquals("B", c01.b)
+    }
 }
