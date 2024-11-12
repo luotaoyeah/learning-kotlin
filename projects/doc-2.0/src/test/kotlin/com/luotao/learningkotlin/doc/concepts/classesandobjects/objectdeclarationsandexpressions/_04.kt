@@ -1,4 +1,4 @@
-package com.luotao.learningkotlin.doc.concepts.classesandobjects.objectexpressionsanddeclarations
+package com.luotao.learningkotlin.doc.concepts.classesandobjects.objectdeclarationsandexpressions
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test

@@ -9,7 +9,7 @@ class _02 {
     fun _01() {
         // 类默认是 final 的, 即不能被继承, 除非显式地用关键字 open 标注,
         open class C01 {
-            // 方法默认也是 final 的, 即不能被覆写, 除非显式地用关键字 open 标注,
+            // 方法默认是 final 的, 即不能被覆写, 除非显式地用关键字 open 标注,
             fun fn01() {}
 
             // 标注为 open 的方法才能被覆写,
@@ -30,9 +30,11 @@ class _02 {
             }
         }
 
-        // 如果一个类是 final 的, 则给它的成员标注为 open 没有效果,
+        // 如果一个类是 final 的, 则将它的成员标注为 open 没有效果,
         class C04 : C03() {
             open fun fn04() {}
+
+            fun fn03(): Unit =println()
         }
     }
 }
