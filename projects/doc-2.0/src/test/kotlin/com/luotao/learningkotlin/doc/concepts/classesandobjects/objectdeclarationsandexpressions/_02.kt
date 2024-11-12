@@ -1,7 +1,7 @@
 package com.luotao.learningkotlin.doc.concepts.classesandobjects.objectdeclarationsandexpressions
 
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 // https://kotlinlang.org/docs/object-declarations.html#data-objects
 class _02 {
@@ -12,6 +12,6 @@ class _02 {
 
     @Test
     fun _01() {
-        Assertions.assertEquals("obj01", obj01.toString())
+        assertEquals("obj01", obj01.toString())
     }
 }

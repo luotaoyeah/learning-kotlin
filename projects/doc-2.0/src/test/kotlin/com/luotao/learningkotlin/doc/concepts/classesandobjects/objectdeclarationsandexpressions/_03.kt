@@ -1,7 +1,7 @@
 package com.luotao.learningkotlin.doc.concepts.classesandobjects.objectdeclarationsandexpressions
 
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 // https://kotlinlang.org/docs/object-declarations.html#companion-objects
 class _03 {
@@ -34,13 +34,13 @@ class _03 {
     @Test
     fun _01() {
         // 可以直接通过类名访问 companion object 中的成员,
-        Assertions.assertEquals(1, C01.x)
-        Assertions.assertEquals(1, C01.obj01.x)
+        assertEquals(1, C01.x)
+        assertEquals(1, C01.obj01.x)
 
         // companion object 如果没有指定名称, 则默认名称为 Companion,
-        Assertions.assertEquals(1, C02.x)
-        Assertions.assertEquals(1, C02.Companion.x)
+        assertEquals(1, C02.x)
+        assertEquals(1, C02.Companion.x)
 
-        Assertions.assertEquals(9, C03.fn01())
+        assertEquals(9, C03.fn01())
     }
 }
