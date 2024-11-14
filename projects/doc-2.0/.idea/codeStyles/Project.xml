@@ -3,7 +3,6 @@
     <option name="AUTODETECT_INDENTS" value="false" />
     <option name="RIGHT_MARGIN" value="160" />
     <JavaCodeStyleSettings>
-      <option name="BLANK_LINES_AROUND_FIELD_WITH_ANNOTATIONS" value="1" />
       <option name="PACKAGES_TO_USE_IMPORT_ON_DEMAND">
         <value />
       </option>
