@@ -25,8 +25,26 @@ class _02 {
         // 类 F01 的实例对象就可以被当成对应类型的函数来使用,
         assertEquals(9, fn01(3, F01()))
 
-        // 调用函数的两种方式, 如下, 直接通过圆括号调用, 或者调用它的 invoke() 方法,
+        // 声明一个匿名的 object 并实现函数类型接口,
+        assertEquals(
+            12,
+            fn01(
+                3,
+                object : (Int) -> Int {
+                    override fun invoke(p1: Int): Int {
+                        return p1 * 3
+                    }
+                },
+            ),
+        )
+
+        // 调用函数的两种方式,
+        //   1. 直接通过圆括号调用,
+        //   2. 或者调用它的 invoke() 方法,
         assertEquals(4, F01()(2))
         assertEquals(4, F01().invoke(2))
+
+        // 如下, 通过 invoke() 的方式调用一个 lambda,
+        assertEquals(6, ({ x: Int -> x * 2 }).invoke(3))
     }
 }
