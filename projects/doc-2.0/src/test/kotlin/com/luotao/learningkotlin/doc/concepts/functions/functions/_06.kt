@@ -1,7 +1,7 @@
 package com.luotao.learningkotlin.doc.concepts.functions.functions
 
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 // https://kotlinlang.org/docs/functions.html#infix-notation
 class _06 {
@@ -17,9 +17,14 @@ class _06 {
 
     @Test
     fun _01() {
-        Assertions.assertEquals(2, 1.myPlus(1))
+        assertEquals(2, 1.myPlus(1))
 
         // 可以使用下面这种形式来调用一个 infix function, 即省略 . 和 ()
-        Assertions.assertEquals(2, 1 myPlus 1)
+        assertEquals(2, 1 myPlus 1)
+    }
+
+    @Test
+    fun _02() {
+        // 调用 infix function 时, 必须指定左右两个成员, 不能省略任何一个,
     }
 }
