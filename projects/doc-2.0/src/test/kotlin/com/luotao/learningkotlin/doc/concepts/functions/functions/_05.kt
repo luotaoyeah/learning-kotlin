@@ -1,25 +1,27 @@
 package com.luotao.learningkotlin.doc.concepts.functions.functions
 
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
 
-// https://kotlinlang.org/docs/functions.html#infix-notation
+// https://kotlinlang.org/docs/functions.html#variable-number-of-arguments-varargs
 class _05 {
-
-    // 当一个方法满足下列条件时, 可以将它标记为 infix function:
-    //   1. 是一个类的方法, 或者扩展方法(extension function)
-    //   2. 只有一个参数
-    //   3. 参数不是 vararg, 参数没有默认值,
-
-    infix fun Int.myPlus(that: Int): Int {
-        return this + that
-    }
 
     @Test
     fun _01() {
-        Assertions.assertEquals(2, 1.myPlus(1))
 
-        // 可以使用下面这种形式来调用一个 infix function, 即省略 . 和 ()
-        Assertions.assertEquals(2, 1 myPlus 1)
+        // 使用 vararg 关键字将一个参数标记为可变参数,
+        // 最多只能将一个参数标记为 vararg,
+        // vararg 参数可以是最后一个参数, 也可以不是最后一个参数,
+
+        fun fn01(x: String, vararg y: Int) {}
+        fn01("X", 1, 2, 3)
+
+        fun fn02(x: String, vararg y: Int, z: Boolean) {}
+        // 如果 vararg 参数不是最后一个参数, 则在调用时他后面的参数必须指定名称,
+        fn02("X", 1, 2, 3, z = false)
+
+        fun fn03(vararg a: Int) {
+            // vararg 参数本质上是一个数组,
+            a.forEach { println(it) }
+        }
     }
 }
