@@ -4,16 +4,15 @@ import kotlin.reflect.KProperty
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-// https://kotlinlang.org/docs/delegated-properties.html
 class _01 {
 
+    // https://kotlinlang.org/docs/delegated-properties.html
     @Test
     fun _01() {
-        class D01 {
+        class C01 {
             var b: String = ""
 
-            // thisRef 表示该 property 前面的点前面的对象,
-            // p 表示该 property 自身,
+            /** [thisRef] 表示该 property 前面的点前面的对象, [p] 表示该 property 自身, */
             operator fun getValue(thisRef: Any?, p: KProperty<*>): String {
                 println("D01 | getValue() | $b")
                 return b
@@ -21,24 +20,28 @@ class _01 {
 
             operator fun setValue(thisRef: Any?, p: KProperty<*>, value: String) {
                 println("D01 | setValue() | $value")
-                b = value
+                b = value + value
             }
         }
 
-        class C01 {
-            // property 的类型后面加上 by expression, 其中的 expression 就称为 delegate,
-            // delegate 中必须定义一个 operator getValue() 方法,
-            // 如果 property 是可写的, 则 delegate 中还必须定义一个 operator setValue() 方法,
-            var a: String by D01()
+        class C02 {
+            /**
+             * <p>property 的类型后面加上 by expression, 其中的 expression 就称为 delegate, delegate 中必须定义一个
+             * operator getValue() 方法, 对应于 property 的 get()</p>
+             *
+             * <p>如果 property 是可写的, 则 delegate 中还必须定义一个 operator setValue() 方法,, 对应于 property 的
+             * set()</p>
+             */
+            var a: String by C01()
         }
 
-        var c01 = C01()
+        var c01 = C02()
 
         c01.a = "A"
-        assertEquals("A", c01.a)
+        assertEquals("AA", c01.a)
 
         c01.a = "B"
-        assertEquals("B", c01.a)
+        assertEquals("BB", c01.a)
     }
 
     // https://kotlinlang.org/docs/delegated-properties.html#delegating-to-another-property
