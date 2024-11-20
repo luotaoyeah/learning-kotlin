@@ -1,22 +1,16 @@
-plugins {
-    kotlin("jvm") version "2.0.21"
-}
+plugins { kotlin("jvm") version "2.0.21" }
 
 group = "com.luotao.learning-kotlin"
+
 version = "1.0-SNAPSHOT"
 
-repositories {
-    mavenCentral()
-}
+repositories { mavenCentral() }
 
 dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
     testImplementation(kotlin("test"))
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
+tasks.test { useJUnitPlatform() }
 
-kotlin {
-    jvmToolchain(17)
-}
+kotlin { jvmToolchain(17) }
