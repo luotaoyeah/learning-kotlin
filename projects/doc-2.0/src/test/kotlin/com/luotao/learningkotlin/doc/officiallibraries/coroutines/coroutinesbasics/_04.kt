@@ -16,6 +16,8 @@ class _04 {
         /** [coroutineScope] 函数里面可以使用 [launch] 启动多个 coroutine, */
         suspend fun doWorld() {
             coroutineScope {
+                println("${now()} | AAA")
+
                 launch {
                     delay(2000)
                     println("${now()} | CCC")
@@ -26,7 +28,6 @@ class _04 {
                     println("${now()} | BBB")
                 }
 
-                println("${now()} | AAA")
             }
         }
 
