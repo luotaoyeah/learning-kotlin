@@ -1,10 +1,11 @@
 package com.luotao.learningkotlin.doc.officiallibraries.coroutines.composingsuspendingfunctions
 
 import com.luotao.learningkotlin.util.log
+import kotlin.test.Test
+import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import kotlin.test.Test
 
 // https://kotlinlang.org/docs/composing-suspending-functions.html
 class _01 {
@@ -44,6 +45,31 @@ class _01 {
             // 调用 Deferred.await() 方法, 就类似于 js 中的 await 关键字, 用来等待并且获取结果,
             deferred01.await()
             deferred02.await()
+
+            log("END")
+        }
+    }
+
+    // https://kotlinlang.org/docs/composing-suspending-functions.html#lazily-started-async
+    @Test
+    fun _03() {
+        runBlocking {
+            log("BEGIN")
+
+            // async 方法参数传入 LAZY, 表示这个 coroutine 创建之后不会马上启动,
+            // 而是要等到调用 Job.start() 或者 Deferred.await() 方法时才会启动,
+            var deferred01 = async(start = CoroutineStart.LAZY) { fn01() }
+            var deferred02 = async(start = CoroutineStart.LAZY) { fn02() }
+
+            delay(1000)
+
+            log("start fn01")
+            deferred01.start()
+
+            delay(1000)
+
+            log("start fn02")
+            deferred02.start()
 
             log("END")
         }
