@@ -38,6 +38,7 @@ class _01 {
     fun _02() {
         runBlocking {
             log("BEGIN")
+
             // async 跟 launch 类似, 也是创建一个新的 coroutine, 区别在于返回的是 Deferred 对象,
             var deferred01 = async { fn01() }
             var deferred02 = async { fn02() }
@@ -56,8 +57,8 @@ class _01 {
         runBlocking {
             log("BEGIN")
 
-            // async 方法参数传入 LAZY, 表示这个 coroutine 创建之后不会马上启动,
-            // 而是要等到调用 Job.start() 或者 Deferred.await() 方法时才会启动,
+            // 如果 async 方法参数传入 LAZY, 表示这个 coroutine 创建之后不会马上启动,
+            // 而是要等到手动调用 Job.start() 或者 Deferred.await() 方法时才会启动,
             var deferred01 = async(start = CoroutineStart.LAZY) { fn01() }
             var deferred02 = async(start = CoroutineStart.LAZY) { fn02() }
 

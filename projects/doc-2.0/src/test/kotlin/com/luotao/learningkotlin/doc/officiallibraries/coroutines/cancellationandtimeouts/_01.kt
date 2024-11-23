@@ -2,32 +2,31 @@ package com.luotao.learningkotlin.doc.officiallibraries.coroutines.cancellationa
 
 import com.luotao.learningkotlin.util.log
 import kotlin.test.Test
-import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
-// https://kotlinlang.org/docs/cancellation-and-timeouts.html
+// https://kotlinlang.org/docs/flow.html#representing-multiple-values
 class _01 {
     @Test
     fun _01() {
-        runBlocking {
-            var job = launch {
-                try {
-                    repeat(100) {
-                        log("$it")
-                        delay(1000)
-                    }
-                } catch (e: CancellationException) {
-                    log("CancellationException")
-                }
-            }
-            log("${job.isActive}")
+        var list01: List<Int> = listOf(1, 2, 3)
 
-            delay(2000)
-            job.cancel()
-            job.join()
-            log("CANCEL")
+        list01.forEach { println(it) }
+    }
+
+    // https://kotlinlang.org/docs/flow.html#sequences
+    @Test
+    fun _02() {
+        fun simple(): Sequence<Int> = sequence {
+            log("START")
+
+            // sequence 的缺点是会阻塞线程,
+            for (i in 1..3) {
+                Thread.sleep(1000)
+                yield(i)
+            }
+
+            log("END")
         }
+
+        simple().forEach { log(it.toString()) }
     }
 }
