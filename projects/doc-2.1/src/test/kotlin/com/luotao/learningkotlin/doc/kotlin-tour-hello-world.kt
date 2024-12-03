@@ -4,7 +4,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 // https://kotlinlang.org/docs/kotlin-tour-hello-world.html
-class _00 {
+class `kotlin-tour-hello-world` {
     @Test
     fun _01() {
         // 用 val 声明只读变量, 只能赋值一次,
