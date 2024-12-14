@@ -11,6 +11,12 @@ class _01 {
 
         data class C01(val name: String, val age: Int)
 
+        // let   | it   -> 新值,
+        // run   | this -> 新值,
+        // run   |      -> 新值,
+        // apply | this -> this,
+        // also  | it   -> this,
+
         // let, 通过 it 访问对象, 返回新值,
         assertEquals(
             9,
