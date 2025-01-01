@@ -8,5 +8,5 @@ fun now(): String {
 }
 
 fun log(message: String) {
-    println("${now()} | ${Thread.currentThread().threadGroup.name} | ${Thread.currentThread().name} | $message")
+    println("${now()} | ${Thread.currentThread().name} | $message")
 }
