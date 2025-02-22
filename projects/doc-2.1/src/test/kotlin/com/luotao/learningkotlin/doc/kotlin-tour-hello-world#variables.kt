@@ -3,17 +3,18 @@ package com.luotao.learningkotlin.doc
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-// https://kotlinlang.org/docs/kotlin-tour-hello-world.html
-class `kotlin-tour-hello-world` {
+// https://kotlinlang.org/docs/kotlin-tour-hello-world.html#variables
+class `kotlin-tour-hello-world#variables` {
     @Test
     fun _01() {
-        // 用 val 声明只读变量, 只能赋值一次,
+        // 用 val 声明只读变量, 只能赋值一次, 可以在声明时赋值, 也可以声明后赋值,
         val v01: Int
         v01 = 1
         assertEquals(1, v01)
 
-        // 用 var 声明普通变量, 可以多次赋值,
-        var v02 = 0
+        // 用 var 声明普通变量, 可以多次赋值, 可以在声明时赋值, 也可以声明后赋值,
+        var v02: Int
+        v02 = 0
         v02 = 1
         v02 = 2
         assertEquals(2, v02)
