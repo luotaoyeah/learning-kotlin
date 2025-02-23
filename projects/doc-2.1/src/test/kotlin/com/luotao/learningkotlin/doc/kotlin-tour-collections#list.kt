@@ -8,8 +8,10 @@ import kotlin.test.assertTrue
 class `kotlin-tour-collections#list` {
     @Test
     fun _01() {
+        // 只读列表,
         val list01: List<Int> = listOf(1, 2, 3)
 
+        // 可写列表,
         val list02: MutableList<Int> = mutableListOf(1, 2, 3)
     }
 
