@@ -18,6 +18,11 @@ class `extensions#extension-functions` {
         println("02")
     }
 
+    // 如果扩展方法跟成员方法签名相同, 则成员方法生效,
+    fun CA.fn01() {
+        println("扩展 01")
+    }
+
     @Test
     fun _01() {
         CA().fn01()
