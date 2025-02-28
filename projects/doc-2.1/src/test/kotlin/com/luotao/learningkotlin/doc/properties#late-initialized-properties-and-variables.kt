@@ -22,4 +22,30 @@ class `properties#late-initialized-properties-and-variables` {
 
         assertEquals("A", s01)
     }
+
+    // https://kotlinlang.org/docs/properties.html#checking-whether-a-lateinit-var-is-initialized
+    @Test
+    fun _02() {
+        class C01 {
+            lateinit var s01: String
+
+            fun fn01() {
+                s01 = "A"
+            }
+
+            fun fn02() {
+                var c01 = C01()
+                c01.fn01()
+
+                /** 可以通过 lateinit property 的 [isInitialized] 属性, 判断该 lateinit property 是否已经初始化 */
+                if (c01::s01.isInitialized) {
+                    assertEquals("A", c01.s01)
+                } else {
+                    println("s01 未初始化")
+                }
+            }
+        }
+
+        C01().fn02()
+    }
 }
