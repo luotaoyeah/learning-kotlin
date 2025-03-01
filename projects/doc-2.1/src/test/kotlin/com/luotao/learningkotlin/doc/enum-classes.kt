@@ -25,7 +25,7 @@ class `enum-classes` {
         B,
         C;
 
-        // 可以定义 property, 它们跟枚举实例之间使用逗号分隔,
+        // 可以定义 property, 它们跟枚举实例之间使用分号分隔,
         val a: Int = ordinal + 1
     }
 
