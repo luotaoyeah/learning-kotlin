@@ -47,7 +47,7 @@ class `returns#return-to-labels` {
         fun fn01() {
             println("BEGIN")
 
-            // 每个函数都有一个默认的 label, 就是它的函数名,
+            // lambda 有一个默认的 label, 就是它所属的调用函数的函数名,
             listOf<String>("A", "B", "C").forEach { it: String ->
                 if (it == "B") {
                     return@forEach

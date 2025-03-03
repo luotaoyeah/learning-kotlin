@@ -11,6 +11,7 @@ class `lambdas#invoking-a-function-type-instance` {
         val fn01: String.(Int) -> Boolean = { false }
 
         // function type 的变量, 可以像普通函数一样直接调用, 也可以调用它的 invoke() 方法,
+        // 注意, 普通函数(使用 fun 关键字声明的函数)不能调用 invlie() 方法,
         assertFalse { fn01.invoke("", 0) }
 
         // 有 receiver 的函数类型, 在调用时, 可以把 receiver 作为第一个参数传入, 也可以使用 receiver.fun() 的形式,
