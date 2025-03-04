@@ -1,8 +1,8 @@
 package com.luotao.learningkotlin.doc
 
 import com.luotao.learningkotlin.util.log
-import kotlinx.coroutines.*
 import kotlin.test.Test
+import kotlinx.coroutines.*
 
 // https://kotlinlang.org/docs/coroutines-basics.html#scope-builder
 class `coroutines-basics#scope-builder` {
@@ -12,6 +12,10 @@ class `coroutines-basics#scope-builder` {
         fun CoroutineScope.fn01() {
             log("A")
 
+            /**
+             * [launch] 需要一个 [CoroutineScope] 类型的 receiver, 因此它的调用函数需要提供这个 [CoroutineScope], 这里
+             * [fn01] 采用的方式不是直接提供, 而是 [fn01] 也声明一个 [CoroutineScope] 类型的 receiver, 然后继承给 [launch],
+             */
             launch {
                 log("C")
                 delay(1000)
@@ -21,9 +25,7 @@ class `coroutines-basics#scope-builder` {
             log("B")
         }
 
-        runBlocking {
-            fn01()
-        }
+        runBlocking { fn01() }
     }
 
     @Test
@@ -32,13 +34,11 @@ class `coroutines-basics#scope-builder` {
         suspend fun fn01() {
             log("A")
 
-            /**
-             * [coroutineScope] 本身是一个 suspend function,
-             * 它的函数参数有一个 [CoroutineScope] 类型的 receiver, 因此该函数参数里面的代码可以使用这个 [CoroutineScope],
-             */
+            /** [coroutineScope] 本身是一个 suspend function, */
             coroutineScope {
                 /**
-                 * 调用 [launch] 刚好需要一个 [CoroutineScope] 类型的 receiver, 于是用上了 [coroutineScope] 提供的 [CoroutineScope],
+                 * [launch] 需要一个 [CoroutineScope] 类型的 receiver, 因此它的调用函数需要提供这个 [CoroutineScope],
+                 * [coroutineScope] 函数刚好给它的函数参数提供了 [CoroutineScope],
                  */
                 launch {
                     log("C")
@@ -50,8 +50,6 @@ class `coroutines-basics#scope-builder` {
             log("B")
         }
 
-        runBlocking {
-            fn01()
-        }
+        runBlocking { fn01() }
     }
 }
