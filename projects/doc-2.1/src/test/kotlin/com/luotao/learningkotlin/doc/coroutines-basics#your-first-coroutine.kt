@@ -13,16 +13,15 @@ class `coroutines-basics#your-first-coroutine` {
         log("A")
 
         /**
-         * [runBlocking] 是一个 coroutine builder, 用来创建一个 coroutine, 并且会阻塞当前线程,
-         * 通常用来在非 coroutine 环境下开启 coroutine 环境, 比如 main 方法中, 或者单元测试中,
+         * [runBlocking] 是一个 coroutine builder, 用来创建一个 coroutine, 并且会阻塞当前线程, 通常用来在非 coroutine 环境下开启
+         * coroutine 环境, 比如 main 方法中, 或者单元测试中,
          */
         runBlocking {
             log("C")
 
-            /**
-             * [launch] 也是一个 coroutine builder, 用来创建一个 coroutine, 但是不会阻塞当前线程,
-             */
+            /** [launch] 也是一个 coroutine builder, 用来创建一个 coroutine, 但是不会阻塞当前线程, */
             launch {
+                delay(1000)
                 log("D")
             }
 
@@ -34,7 +33,7 @@ class `coroutines-basics#your-first-coroutine` {
 
     // https://kotlinlang.org/docs/coroutines-basics.html#structured-concurrency
     @Test
-    fun _02(){
+    fun _02() {
         log("A")
 
         runBlocking {
