@@ -15,13 +15,11 @@ class `composing-suspending-functions##sequential-by-default` {
         }
 
         suspend fun fn02() {
-            delay(1000)
+            delay(2000)
             log("D")
         }
 
-        /**
-         * coroutine 中的 suspend function 默认就是顺序执行的, 即后面的代码要等待前面的执行完之后才会执行,
-         */
+        /** coroutine 中的 suspend function 默认就是顺序执行的, 即后面的代码要等待前面的 suspend function 执行完之后才会执行, */
         runBlocking {
             log("A")
 

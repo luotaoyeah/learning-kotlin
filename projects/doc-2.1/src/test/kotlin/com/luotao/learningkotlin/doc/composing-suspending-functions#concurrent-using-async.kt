@@ -15,13 +15,14 @@ class `composing-suspending-functions#concurrent-using-async` {
         }
 
         suspend fun fn02() {
-            delay(1000)
+            delay(2000)
             log("D")
         }
 
         runBlocking {
             log("A")
 
+            // 将两个 suspend function 分别用 launch 包起来, 则新开启的两个 coroutine 会并行执行,
             val job01 = launch { fn01() }
             val job02 = launch { fn02() }
 
@@ -51,15 +52,14 @@ class `composing-suspending-functions#concurrent-using-async` {
             log("A")
 
             /**
-             * [async] 跟 [launch] 一样, 也是一个 coroutine builder, 区别在于它返回的是一个 [Deferred] 对象, 可以从 [Deferred] 获取返回的数据,
+             * [async] 跟 [launch] 一样, 也是一个 coroutine builder, 区别在于它返回的是一个 [Deferred] 对象, 可以从
+             * [Deferred] 获取返回的数据,
              */
             val deferred01 = async { fn01() }
             val deferred02 = async { fn02() }
             val deferred03 = async { fn03() }
 
-            /**
-             * 调用 [Deferred.await] 方法可以获取该 suspend function 返回的数据, 就类似于 js 中的 await Promise,
-             */
+            /** 调用 [Deferred.await] 方法可以获取该 suspend function 返回的数据, 就类似于 js 中的 await Promise, */
             val result: Int = deferred03.await()
 
             assertEquals(9, result)
