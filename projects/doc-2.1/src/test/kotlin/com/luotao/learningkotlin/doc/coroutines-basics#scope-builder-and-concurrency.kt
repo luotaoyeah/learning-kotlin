@@ -13,32 +13,28 @@ class `coroutines-basics#scope-builder-and-concurrency` {
     fun _01() {
         suspend fun fn01() {
             coroutineScope {
-                /**
-                 * [launch] 开启一个新的 coroutine
-                 */
+                /** [launch] 开启一个新的 coroutine */
                 launch {
                     delay(2000)
                     log("C")
                 }
 
-                /**
-                 * [launch] 开启一个新的 coroutine
-                 */
+                /** [launch] 开启一个新的 coroutine */
                 launch {
                     delay(1000)
                     log("D")
                 }
 
+                /** 上面两个 [launch] 开启的两个 coroutine 是并行执行的, */
                 log("B")
             }
         }
 
-        /**
-         * [runBlocking] 开启一个新的 coroutine
-         */
+        /** [runBlocking] 开启一个新的 coroutine */
         runBlocking {
-            fn01()
             log("A")
+            fn01()
+            log("E")
         }
     }
 }
