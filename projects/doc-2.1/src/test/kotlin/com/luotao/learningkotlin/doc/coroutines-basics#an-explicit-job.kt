@@ -13,9 +13,7 @@ class `coroutines-basics#an-explicit-job` {
         runBlocking {
             log("A")
 
-            /**
-             * [launch] 返回一个 [kotlinx.coroutines.Job] 对象,
-             */
+            /** [launch] 返回一个 [kotlinx.coroutines.Job] 对象, */
             val job = launch {
                 log("C")
                 delay(1000)
@@ -25,7 +23,8 @@ class `coroutines-basics#an-explicit-job` {
             log("B")
 
             /**
-             * [kotlinx.coroutines.Job.join] 方法是一个 suspend function, 它会等待这个 [kotlinx.coroutines.Job] 完成, 然后再执行后面的代码,
+             * [kotlinx.coroutines.Job.join] 方法是一个 suspend function, 它会等待这个 [kotlinx.coroutines.Job]
+             * 完成, 然后再执行后面的代码,
              */
             job.join()
             log("E")
